@@ -25,11 +25,12 @@ angular.module('contactProto')
     };
 
     //open Scheduler Overlay on clickig the button "Schedule an appointment"
-    $scope.openSchedulerOverlay = function() {
+    $scope.openSchedulerOverlay = function(hideDiv) {
       $modal.open({
         controller: 'modalController as modal',
         templateUrl: 'components/contactWidget/schedulerOverlay.html'
       });
+      $scope.hideDiv();
     };
 
   })
