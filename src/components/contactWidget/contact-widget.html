@@ -1,0 +1,63 @@
+<style>
+  .contact-widget {
+    display:block;
+    position: fixed;
+    top: 35%;
+    right: 0;
+    z-index: 1030;
+    text-align: right;
+  }
+
+  .contact-widget a {
+    display: block;
+    width: 52px;
+    margin-bottom: 5px;
+  }
+
+  .schedulerDiv {
+    position: absolute;
+    width: 300px;
+    top:-20%;
+    left: -250px;
+    z-index: 2000;
+    padding: 10px;
+    text-align: center;
+    background: #023081;
+    color: #fff;
+    padding-bottom:30px;
+    min-height: 180px;
+  }
+
+  .closeLink a{ 
+    display:block;
+    margin-left:240px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+</style>
+
+<div class="contact-widget" ng-controller="contactWidgetCtrl">
+  
+  <div ng-if="data.chatIsEnable" class="chat">
+    <a ng-disabled="!data.chatIsAvailable" 
+      class="btn btn-primary btn-lg" ng-click="openChatWindow()">
+      <i class="fa fa-comment-o"></i>
+    </a>
+  </div>
+
+  <div ng-if="data.schedulerIsEnable" class="scheduler">
+    <a class="btn btn-primary btn-lg" 
+      ng-click="showDiv()">
+      <i class="fa fa-phone"></i>
+    </a>
+    <div class="schedulerDiv" ng-show="myval">
+        <div class="closeLink"  ng-click="hideDiv()"><a>&times;</a></div>
+        <h4>Schedule to talk with an advisor!</h4>
+        <p>We have advisors for yo at 888-888-7777, M-F, 8:30AM -9:00PM ET.</p>
+        <button class="btn btn-default" ng-click="openSchedulerOverlay()">
+          Schedule an appointment
+        </button>
+    </div>
+  </div>
+
+</div>
